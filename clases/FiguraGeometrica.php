@@ -1,8 +1,8 @@
 <?php
 
 class FiguraGeometrica{
-    public $tipoFigura
-    public $lado1
+    public $tipoFigura;
+    public $lado1;
 
 
     function setTipoFigura($tipoFigura){
@@ -10,7 +10,7 @@ class FiguraGeometrica{
     }
 
     function getTipoFigura(){
-        $this->tipoFigura = $tipoFigura;       
+        return $this->tipoFigura;       
     }
 
     function setLado1($lado1){
@@ -18,7 +18,7 @@ class FiguraGeometrica{
     }
 
     function getLado1(){
-        $this->lado1 = $lado1;       
+        return $this->lado1;       
     }
 
     function __construct($tipoFigura, $lado1){

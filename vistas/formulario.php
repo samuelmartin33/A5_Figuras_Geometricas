@@ -35,11 +35,20 @@ $lado3 = $_SESSION['lado3'] ?? '';
     <form action="resultado.php" method="post" id="form-figura">
 
         <?php if ($figura === 'triangulo'): ?>
+            <h3>El triangulo que pongas solo puedes ser isósceles o rectángulo</h3>
+            <p> 
+                Un triangulo isósceles es un triangulo con dos lados iguales y uno diferente.
+                Un triangulo rectángulo es un triangulo con un lado recto (90º).<br>
+                Un triangulo equilatero es un triangulo que tiene todos los lados iguales<br>
+            </p>
             <label>Lado 1:</label>
             <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required><br>
 
             <label>Lado 2:</label>
             <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required><br>
+
+            <label>Lado 3:</label>
+            <input type="number" name="lado3" id="lado3" value="<?= $lado3 ?>" step="0.01" required><br>
 
         <?php elseif ($figura === 'rectangulo'): ?>
             <label>Lado 1:</label>
@@ -59,6 +68,7 @@ $lado3 = $_SESSION['lado3'] ?? '';
 
         <br>
         <button type="submit">Calcular</button>
+        <a href="./index.php">Vuelta al Index</a>
     </form>
 </body>
 </html>
