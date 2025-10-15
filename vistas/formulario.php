@@ -1,11 +1,16 @@
 <?php
 session_start();
 
+
 if (isset($_GET['figura'])) {
     $_SESSION['figura'] = $_GET['figura'];
 }
+if (!isset($_SESSION['figura'])) {
+    header('Location: index.php');
+    exit; 
+}
 
-$figura = $_SESSION['figura'] ?? null;
+$figura = $_SESSION['figura'];
 
 // Si no hay figura seleccionada, redirigimos al index
 if (!$figura) {
@@ -18,9 +23,7 @@ $lado1 = $_SESSION['lado1'] ?? '';
 $lado2 = $_SESSION['lado2'] ?? '';
 $lado3 = $_SESSION['lado3'] ?? '';
 
-// **NOTA IMPORTANTE:**
-// Para que se vea bien, la imagen debe llamarse igual que la variable $figura
-// (ej. cuadrado.png, triangulo.png) y estar en la carpeta '../img/'
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +31,7 @@ $lado3 = $_SESSION['lado3'] ?? '';
     <meta charset="UTF-8">
     <title>Introduce los datos de la figura</title>
     <link rel="stylesheet" href="../css/estilos.css">
-    <script src="../js/validaciones.js" defer></script>
+    <script src="../js/codigo.js"></script>
 </head>
 <body>
     <div class="contenedor-pagina"> 
@@ -52,43 +55,38 @@ $lado3 = $_SESSION['lado3'] ?? '';
                     Un triangulo rectángulo es un triangulo con un lado recto (90º).<br>
                     Un triangulo equilatero es un triangulo que tiene todos los lados iguales<br>
                 </p>
-                <div class="formulario-grupo">
-                    <label>Lado 1:</label>
-                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
-                </div>
+                <label>Lado 1:</label>
+                <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                <br> 
 
-                <div class="formulario-grupo">
-                    <label>Lado 2:</label>
-                    <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required>
-                </div>
+                <label>Lado 2:</label>
+                <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required>
+                <br> 
 
-                <div class="formulario-grupo">
-                    <label>Lado 3:</label>
-                    <input type="number" name="lado3" id="lado3" value="<?= $lado3 ?>" step="0.01" required>
-                </div>
+                <label>Lado 3:</label>
+                <input type="number" name="lado3" id="lado3" value="<?= $lado3 ?>" step="0.01" required>
+                <br> 
 
             <?php elseif ($figura === 'rectangulo'): ?>
-                <div class="formulario-grupo">
-                    <label>Lado 1:</label>
-                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
-                </div>
-
-                <div class="formulario-grupo">
-                    <label>Lado 2:</label>
-                    <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required>
-                </div>
+            
+            <label>Lado 1 (Base):</label>
+            <input type="number" name="lado1" id="lado1" value="<?= htmlspecialchars($lado1) ?>" step="0.01" required> 
+            <br> 
+            
+            <label>Lado 2 (Altura):</label>
+            <input type="number" name="lado2" id="lado2" value="<?= htmlspecialchars($lado2) ?>" step="0.01" required> 
+            <br>
 
             <?php elseif ($figura === 'cuadrado'): ?>
-                <div class="formulario-grupo">
-                    <label>Lado:</label>
-                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
-                </div>
+                <label>Lado:</label>
+                <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                <br> 
 
             <?php elseif ($figura === 'circulo'): ?>
-                <div class="formulario-grupo">
-                    <label>Radio:</label>
-                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
-                </div>
+                <label>Radio:</label>
+                <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                <br> 
+
             <?php endif; ?>
 
             <br>

@@ -26,7 +26,7 @@ class Circulo extends FiguraGeometrica {
     }
 
     public function __toString() {
-        return "Figura: " . $this->getTipoFigura() . ". Radio: " . $this->getRadio();
+        return "La figura: " . $this->getTipoFigura() . " tiene un radio de " . $this->getRadio() . "cm.";
     }
 }
 ?>

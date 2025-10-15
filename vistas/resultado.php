@@ -7,7 +7,7 @@ require_once '../clases/Rectangulo.php';
 require_once '../clases/Circulo.php'; 
 
 
-$figura = $_SESSION['figura'] ?? null;
+$figura = $_SESSION['figura'];
 
 // Si no hay figura seleccionada, redirigimos al index
 if (!$figura) {

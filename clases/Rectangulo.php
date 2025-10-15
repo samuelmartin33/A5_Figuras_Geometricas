@@ -30,6 +30,8 @@ class Rectangulo extends FiguraGeometrica{
     }
 
     public function __toString() {
-        return "Figura: " . $this->getTipoFigura() . ". Con base: " . $this->getLado1() . ", y altura: " . $this->getLado2(). ". Tiene de area ". $this->calcularArea(). " y perimetro ". $this->calcularPerimetro();
+
+        return "La figura: " . $this->getTipoFigura() . "<br> Con base: " . $this->getLado1() . "cm <br> Altura: " . $this->getLado2() . "cm<br> Tiene de área ". $this->calcularArea(). " cm y perímetro ". $this->calcularPerimetro(). " cm.";
+
     }
 }
