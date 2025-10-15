@@ -4,6 +4,7 @@ require_once '../clases/FiguraGeometrica.php';
 require_once '../clases/Triangulo.php';
 require_once '../clases/Cuadrado.php'; 
 require_once '../clases/Rectangulo.php'; 
+require_once '../clases/Circulo.php'; 
 
 
 $figura = $_SESSION['figura'] ?? null;
@@ -48,6 +49,16 @@ if ($figura === 'triangulo') {
     echo "<h2>Resultado del Rectangulo:</h2>";
     echo "<p>" . $rectangulo . "</p>";
 
+}elseif ($figura === 'circulo') {
+    
+    $radio = ($_POST['lado1'] ?? 0); 
+    
+    $circulo = new Circulo($radio);
+    
+    echo "<h2>Resultado del Círculo:</h2>";
+    echo "<p>" . $circulo . "</p>";
+} else {
+    echo "<h2>Error: Esta Figura no esta en la lista.</h2>";
 }
 ?>
 
