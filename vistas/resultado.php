@@ -25,8 +25,18 @@ if ($figura === 'triangulo') {
 
     echo "<h2>Resultado del Triángulo:</h2>";
     echo "<p>" . $triangulo . "</p>";
+
+}elseif ($figura === 'cuadrado') {
     
+    $lado = ($_POST['lado1'] ?? 0);
+    
+    $cuadrado = new Cuadrado($lado);
+    
+    echo "<h2>Resultado del Cuadrado:</h2>";
+    echo "<p>" . $cuadrado . "</p>";
+
 }
 ?>
+
 
 <p><a href="formulario.php">Volver a calcular</a></p>
