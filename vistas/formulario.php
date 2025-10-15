@@ -18,6 +18,9 @@ $lado1 = $_SESSION['lado1'] ?? '';
 $lado2 = $_SESSION['lado2'] ?? '';
 $lado3 = $_SESSION['lado3'] ?? '';
 
+// **NOTA IMPORTANTE:**
+// Para que se vea bien, la imagen debe llamarse igual que la variable $figura
+// (ej. cuadrado.png, triangulo.png) y estar en la carpeta '../img/'
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,47 +31,70 @@ $lado3 = $_SESSION['lado3'] ?? '';
     <script src="../js/validaciones.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Figura seleccionada: <?= ($figura) ?></h1>
-    </header>
+    <div class="contenedor-pagina"> 
 
-    <form action="resultado.php" method="post" id="form-figura">
+        <div class="header-figura-container">
+            <img src="../img/<?= htmlspecialchars($figura) ?>.png" 
+                 alt="Imagen de <?= htmlspecialchars($figura) ?>" 
+                 class="imagen-figura">
+            
+            <div class="titulo-figura">
+                <h1>Figura seleccionada:</h1>
+                <h2><?= htmlspecialchars($figura) ?></h2>
+            </div>
+        </div>
+        <form action="resultado.php" method="post" id="form-figura">
 
-        <?php if ($figura === 'triangulo'): ?>
-            <h3>El triangulo que pongas solo puedes ser isósceles o rectángulo</h3>
-            <p> 
-                Un triangulo isósceles es un triangulo con dos lados iguales y uno diferente.
-                Un triangulo rectángulo es un triangulo con un lado recto (90º).<br>
-                Un triangulo equilatero es un triangulo que tiene todos los lados iguales<br>
-            </p>
-            <label>Lado 1:</label>
-            <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required><br>
+            <?php if ($figura === 'triangulo'): ?>
+                <h3>El triangulo que pongas solo puedes ser isósceles o rectángulo</h3>
+                <p> 
+                    Un triangulo isósceles es un triangulo con dos lados iguales y uno diferente.<br>
+                    Un triangulo rectángulo es un triangulo con un lado recto (90º).<br>
+                    Un triangulo equilatero es un triangulo que tiene todos los lados iguales<br>
+                </p>
+                <div class="formulario-grupo">
+                    <label>Lado 1:</label>
+                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                </div>
 
-            <label>Lado 2:</label>
-            <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required><br>
+                <div class="formulario-grupo">
+                    <label>Lado 2:</label>
+                    <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required>
+                </div>
 
-            <label>Lado 3:</label>
-            <input type="number" name="lado3" id="lado3" value="<?= $lado3 ?>" step="0.01" required><br>
+                <div class="formulario-grupo">
+                    <label>Lado 3:</label>
+                    <input type="number" name="lado3" id="lado3" value="<?= $lado3 ?>" step="0.01" required>
+                </div>
 
-        <?php elseif ($figura === 'rectangulo'): ?>
-            <label>Lado 1:</label>
-            <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required><br>
+            <?php elseif ($figura === 'rectangulo'): ?>
+                <div class="formulario-grupo">
+                    <label>Lado 1:</label>
+                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                </div>
 
-            <label>Lado 2:</label>
-            <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required><br>
+                <div class="formulario-grupo">
+                    <label>Lado 2:</label>
+                    <input type="number" name="lado2" id="lado2" value="<?= $lado2 ?>" step="0.01" required>
+                </div>
 
-        <?php elseif ($figura === 'cuadrado'): ?>
-            <label>Lado:</label>
-            <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required><br>
+            <?php elseif ($figura === 'cuadrado'): ?>
+                <div class="formulario-grupo">
+                    <label>Lado:</label>
+                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                </div>
 
-        <?php elseif ($figura === 'circulo'): ?>
-            <label>Radio:</label>
-            <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required><br>
-        <?php endif; ?>
+            <?php elseif ($figura === 'circulo'): ?>
+                <div class="formulario-grupo">
+                    <label>Radio:</label>
+                    <input type="number" name="lado1" id="lado1" value="<?= $lado1 ?>" step="0.01" required>
+                </div>
+            <?php endif; ?>
 
-        <br>
-        <button type="submit">Calcular</button>
-        <a href="./index.php">Vuelta al Index</a>
-    </form>
+            <br>
+            <button type="submit">Calcular</button>
+            <a href="./index.php">Vuelta al Index</a>
+        </form>
+    </div>
 </body>
 </html>

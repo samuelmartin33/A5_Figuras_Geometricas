@@ -23,6 +23,14 @@ session_start();
         </select>
 
         <br><br>
+         
+        <h3>Figuras Disponibles:</h3>
+        <div class="galeria-figuras">
+            <img src="../img/triangulo.png" alt="Triángulo" title="Triángulo">
+            <img src="../img/rectangulo.png" alt="Rectángulo" title="Rectángulo">
+            <img src="../img/cuadrado.png" alt="Cuadrado" title="Cuadrado">
+            <img src="../img/circulo.png" alt="Círculo" title="Círculo">
+        </div>
         <button type="submit">Continuar</button>
     </form>
 </body>
