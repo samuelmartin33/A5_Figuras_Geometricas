@@ -3,6 +3,8 @@ session_start();
 require_once '../clases/FiguraGeometrica.php';
 require_once '../clases/Triangulo.php';
 require_once '../clases/Cuadrado.php'; 
+require_once '../clases/Rectangulo.php'; 
+
 
 $figura = $_SESSION['figura'] ?? null;
 
@@ -34,6 +36,17 @@ if ($figura === 'triangulo') {
     
     echo "<h2>Resultado del Cuadrado:</h2>";
     echo "<p>" . $cuadrado . "</p>";
+
+}elseif ($figura === 'rectangulo') {
+    
+    $lado1 = ($_POST['lado1'] ?? 0);
+    $lado2 = ($_POST['lado2'] ?? 0);
+
+    
+    $rectangulo = new Rectangulo($lado1, $lado2);
+    
+    echo "<h2>Resultado del Rectangulo:</h2>";
+    echo "<p>" . $rectangulo . "</p>";
 
 }
 ?>
